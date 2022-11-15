@@ -1,0 +1,1 @@
+python main.py PYTHONIOENCODING=chcp1251
