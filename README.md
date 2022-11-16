@@ -1,7 +1,7 @@
 # EncryptText
 **Реализация шифрования текста путем простой замены, аффинного шифра и аффинного рекурентного шифра**
 
-<img src="https://i.ytimg.com/vi/S0BCRtskDYA/maxresdefault.jpg" width="1280" height=500">
+<img src="https://i.ytimg.com/vi/S0BCRtskDYA/maxresdefault.jpg" width="1280" height="500">
 
 **Для запуска необходимо иметь два файла:**
 ```
