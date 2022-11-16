@@ -4,13 +4,13 @@ def introMS() -> int:
     print("Выберете тип операции:\n1 - Зашифрование\n2 - Расшифрование")
     OperType = int(input())
     if OperType != 1 and OperType != 2: 
-        print("\nВВЕДЕНЫ НЕВЕРНЫЕ ВХОДНЫЕ ДАННЫЕ!")
+        print("\nError! ВВЕДЕНЫ НЕВЕРНЫЕ ВХОДНЫЕ ДАННЫЕ!")
         exit()
 
     print("\nВыберите шифр:\n1 - Шифр простой замены\n2 - Аффинный шифр\n3 - Аффинный рекуррентный шифр")
     CrypType = int(input())
     if CrypType != 1 and CrypType != 2 and CrypType != 3: 
-        print("\nВВЕДЕНЫ НЕВЕРНЫЕ ВХОДНЫЕ ДАННЫЕ!")
+        print("\nError! ВВЕДЕНЫ НЕВЕРНЫЕ ВХОДНЫЕ ДАННЫЕ!")
         exit()
 
     if OperType == 1:
@@ -69,9 +69,8 @@ def introMS() -> int:
         return OperType, CrypType
     else:
         if otvet == 2:
-            print("СОЗДАЙТЕ ВЫШЕУКАЗАННЫЕ ФАЙЛЫ!")
-            return None
+            print("\nError! СОЗДАЙТЕ ВЫШЕУКАЗАННЫЕ ФАЙЛЫ!")
             exit()
         else: 
-            print("\nВВЕДЕНЫ НЕВЕРНЫЕ ВХОДНЫЕ ДАННЫЕ!")
+            print("\nError! ВВЕДЕНЫ НЕВЕРНЫЕ ВХОДНЫЕ ДАННЫЕ!")
             exit()

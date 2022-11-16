@@ -4,16 +4,25 @@
 # аффинный шифр
 # аффинный рекуррентный шифр
 
+import os.path
 from intro import introMS
+from EncryptCode import Encrypt
 
 def start():
     OperType, CrypType = introMS()
-    if OperType + CrypType != 0: CheckF(OperType, CrypType)
+    if OperType + CrypType != 0: CheckF(OperType, CrypType) 
+    else: 
+        print("\nError")
+        exit()
     return None
 
 def CheckF(OperType, CrypType):
-    print(OperType, CrypType)
-    input('Нажмите Enter для выхода\n')
+    if os.path.isfile('key.txt') and os.path.isfile('input.txt'):
+        print()
+        print(Encrypt(OperType, CrypType))
+    else:
+        print("\nСОЗДАЙТЕ ВЫШЕУКАЗАННЫЕ ФАЙЛЫ!")
+        exit()
     return None
 
 if __name__ == "__main__":
