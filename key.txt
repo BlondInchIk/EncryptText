@@ -1,2 +1,2 @@
-a b c d e f
-f b d c a e
+10 11
+17 45
