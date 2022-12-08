@@ -7,6 +7,7 @@
 import os.path
 from intro import introMS
 from EncryptCode import Encrypt
+from Analyse import CryptAnalyse
 
 def start():
     OperType, CrypType = introMS()
@@ -19,7 +20,10 @@ def start():
 def CheckF(OperType, CrypType):
     if os.path.isfile('key.txt') and os.path.isfile('input.txt'):
         print()
-        print(Encrypt(OperType, CrypType))
+        if OperType == 3:
+            print(CryptAnalyse(OperType, CrypType))
+        else:
+            print(Encrypt(OperType, CrypType))
     else:
         print("\nСОЗДАЙТЕ ВЫШЕУКАЗАННЫЕ ФАЙЛЫ!")
         exit()

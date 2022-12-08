@@ -10,11 +10,11 @@ def Encrypt(OperType, CrypType) -> str:
     key = getKey(CrypType, keyF)
     CrypText = ''
     inputF = inputF.read()
-    curstr = ''
-    for i in inputF: 
-            if i.isalpha(): curstr += i.upper()
-            else: curstr += i
-    inputF = curstr
+    # curstr = ''
+    # for i in inputF: 
+    #         if i.isalpha(): curstr += i.upper()
+    #         else: curstr += i
+    # inputF = curstr
 
     if CrypType != 1:
         print('\nВыберите язык текста:\n1 - Английский\n2 - Русский')
@@ -27,14 +27,19 @@ def Encrypt(OperType, CrypType) -> str:
 
         if CrypType == 1:
             cur = key[0]
+            for i in cur:
+                i = i.upper()
             for i in range(len(inputF)):
                 if inputF[i].isalpha():
-                    if not(inputF[i] in key[0]) or not (inputF[i] in key[1]): 
+                    if not((inputF[i].upper() in key[0]) or (inputF[i].lower() in key[0])) or not ((inputF[i].upper() in key[1]) or (inputF[i].lower() in key[1])): 
                         print("\nError: КЛЮЧ НЕ ПОДХОДИТ К ДАННОМУ ТЕКСТУ!")
                         exit()
                     else:
                         curindx = cur.index(inputF[i].upper())
-                        CrypText += key[1][curindx]
+                        if inputF[i].upper() == inputF[i]:
+                            CrypText += key[1][curindx].upper()
+                        else:
+                            CrypText += key[1][curindx].lower()
                 else:
                     CrypText += inputF[i]
         
@@ -46,28 +51,34 @@ def Encrypt(OperType, CrypType) -> str:
                 exit()
             for i in range(len(inputF)):
                 if inputF[i].isalpha():
-                    if not(inputF[i] in Alphabet): 
+                    if not(inputF[i].upper() in Alphabet): 
                         print("\nError: КЛЮЧ НЕ ПОДХОДИТ К ДАННОМУ ТЕКСТУ!")
                         exit()
                     else:
                         curindx = Alphabet.index(inputF[i].upper())
                         cur = (a*curindx + b) % len(Alphabet)
-                        CrypText += Alphabet[cur]
+                        if inputF[i].upper() == inputF[i]:
+                            CrypText += Alphabet[cur].upper()
+                        else:
+                            CrypText += Alphabet[cur].lower()
                 else:
                     CrypText += inputF[i]
 
         if CrypType == 3:
             a = int(key[0][0])
-            a1 = int(key[0][1])
-            b = int(key[1][0])
+            a1 = int(key[1][0])
+            b = int(key[0][1])
             b1 = int(key[1][1])
             numb = 0
             if math.gcd(a, len(Alphabet)) != 1:
                 print("\nError: КЛЮЧ НЕ ПОДХОДИТ К ДАННОМУ ТЕКСТУ!")
                 exit()
+            if math.gcd(a1, len(Alphabet)) != 1:
+                print("\nError: КЛЮЧ НЕ ПОДХОДИТ К ДАННОМУ ТЕКСТУ!")
+                exit()
             for i in range(len(inputF)):
                 if inputF[i].isalpha():
-                    if not(inputF[i] in Alphabet): 
+                    if not(inputF[i].upper() in Alphabet): 
                         print("\nError: КЛЮЧ НЕ ПОДХОДИТ К ДАННОМУ ТЕКСТУ!")
                         exit()
                     else:
@@ -87,7 +98,10 @@ def Encrypt(OperType, CrypType) -> str:
                                 a = cur_a1
                                 b = cur_b1
                                 cur = (a1*curindx + b1) % len(Alphabet)
-                        CrypText += Alphabet[cur]
+                        if inputF[i].upper() == inputF[i]:
+                            CrypText += Alphabet[cur].upper()
+                        else:
+                            CrypText += Alphabet[cur].lower()
                 else:
                     CrypText += inputF[i]
 
@@ -96,14 +110,19 @@ def Encrypt(OperType, CrypType) -> str:
 
         if CrypType == 1:
             cur = key[1]
+            for i in cur:
+                i = i.upper()
             for i in range(len(inputF)):
                 if inputF[i].isalpha():
-                    if not(inputF[i] in key[0]) or not (inputF[i] in key[1]): 
+                    if not((inputF[i].upper() in key[0]) or (inputF[i].lower() in key[0])) or not ((inputF[i].upper() in key[1]) or (inputF[i].lower() in key[1])): 
                         print("\nError: КЛЮЧ НЕ ПОДХОДИТ К ДАННОМУ ТЕКСТУ!")
                         exit()
                     else:
                         curindx = cur.index(inputF[i].upper())
-                        CrypText += key[0][curindx]
+                        if inputF[i].upper() == inputF[i]:
+                            CrypText += key[0][curindx].upper()
+                        else:
+                            CrypText += key[0][curindx].lower()
                 else:
                     CrypText += inputF[i]
 
@@ -119,23 +138,29 @@ def Encrypt(OperType, CrypType) -> str:
                     break
             for i in range(len(inputF)):
                 if inputF[i].isalpha():
-                    if not(inputF[i] in Alphabet): 
+                    if not(inputF[i].upper() in Alphabet): 
                         print("\nError: КЛЮЧ НЕ ПОДХОДИТ К ДАННОМУ ТЕКСТУ!")
                         exit()
                     else:
                         curindx = Alphabet.index(inputF[i].upper())
                         cur = ((curindx - b) * a)  % len(Alphabet)
-                        CrypText += Alphabet[cur]
+                        if inputF[i].upper() == inputF[i]:
+                            CrypText += Alphabet[cur].upper()
+                        else:
+                            CrypText += Alphabet[cur].lower()
                 else:
                     CrypText += inputF[i]
         
         if CrypType == 3:
             a = int(key[0][0])
-            a1 = int(key[0][1])
-            b = int(key[1][0])
+            a1 = int(key[1][0])
+            b = int(key[0][1])
             b1 = int(key[1][1])
             numb = 0
             if math.gcd(a, len(Alphabet)) != 1:
+                print("\nError: КЛЮЧ НЕ ПОДХОДИТ К ДАННОМУ ТЕКСТУ!")
+                exit()
+            if math.gcd(a1, len(Alphabet)) != 1:
                 print("\nError: КЛЮЧ НЕ ПОДХОДИТ К ДАННОМУ ТЕКСТУ!")
                 exit()
             for i in range(len(Alphabet)):
@@ -148,17 +173,17 @@ def Encrypt(OperType, CrypType) -> str:
                     break
             for i in range(len(inputF)):
                 if inputF[i].isalpha():
-                    if not(inputF[i] in Alphabet): 
+                    if not(inputF[i].upper() in Alphabet): 
                         print("\nError: КЛЮЧ НЕ ПОДХОДИТ К ДАННОМУ ТЕКСТУ!")
                         exit()
                     else:
                         curindx = Alphabet.index(inputF[i].upper())
                         if numb == 0:
-                            cur = (a*curindx + b) % len(Alphabet)
+                            cur = ((curindx - b) * a)  % len(Alphabet)
                             numb += 1
                         else:
                             if numb == 1:
-                                cur = (a1*curindx + b1) % len(Alphabet)
+                                cur = ((curindx - b1) * a1)  % len(Alphabet)
                                 numb += 1
                             else:
                                 cur_a1 = a1
@@ -167,8 +192,11 @@ def Encrypt(OperType, CrypType) -> str:
                                 b1 = (b + b1) % len(Alphabet)
                                 a = cur_a1
                                 b = cur_b1
-                                cur = (a1*curindx + b1) % len(Alphabet)
-                        CrypText += Alphabet[cur]
+                                cur = ((curindx - b1) * a1)  % len(Alphabet)
+                        if inputF[i].upper() == inputF[i]:
+                            CrypText += Alphabet[cur].upper()
+                        else:
+                            CrypText += Alphabet[cur].lower()
                 else:
                     CrypText += inputF[i]
 
