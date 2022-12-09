@@ -35,6 +35,7 @@ def CryptAnalyse(CrypType: int):
                 for i in cur:
                     if inputF[j] == i:
                         result += Alphabet[numb]
+                        break
                     numb += 1
             else:
                 result += inputF[j]
