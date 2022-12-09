@@ -1,6 +1,7 @@
 def CryptAnalyse(CrypType: int):
 
     inputF = open('input.txt', 'r', encoding='utf8')
+    outputF = open('output.txt', 'w', encoding='utf8')
     result = ''
     inputF = inputF.read()
 
@@ -59,8 +60,10 @@ def CryptAnalyse(CrypType: int):
                 result += Alphabet2[((Alphabet2.index(inputF[i]) - b) * a)  % len(Alphabet2)]
             else:
                 result += inputF[i]
-            
-    print("Криптоанализ данного шифротекста выполнен успешно!\n")
-    return result
+    
+    outputF.write(result)
+    outputF.close()
+   
+    return "Криптоанализ данного шифротекста выполнен успешно!\n"
 
-print("Криптоанализ данного шифротекста:\n",CryptAnalyse(1))
+
