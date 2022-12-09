@@ -21,7 +21,7 @@ def CheckF(OperType, CrypType):
     if os.path.isfile('key.txt') and os.path.isfile('input.txt'):
         print()
         if OperType == 3:
-            print(CryptAnalyse(OperType, CrypType))
+            print(CryptAnalyse(CrypType))
         else:
             print(Encrypt(OperType, CrypType))
     else:

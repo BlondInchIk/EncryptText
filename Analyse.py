@@ -10,18 +10,10 @@ def CryptAnalyse(CrypType):
         Alphabet = "ETAOINSHRDLCUMWFGYPBVKXJQZ"
         Alphabet2 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     else:
-        if int(input()) == 2:
-            Alphabet = 'ОЕАИНТСРВЛКМДПУЯЫЬГЗБЧЙЧЖШЮЦЩЭФЪЁ'
-            Alphabet2 = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
-        else:
-            print("Error!")
-            exit()
+        Alphabet = 'ОЕАИНТСРВЛКМДПУЯЫЬГЗБЧЙЧЖШЮЦЩЭФЪЁ'
+        Alphabet2 = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
 
-
-
-    result = ''   
     cur = {}
-
 
     for i in range(len(Alphabet)):
         cur[Alphabet[i]] = inputF.count(Alphabet[i].upper()) + inputF.count(Alphabet[i].lower())
@@ -34,8 +26,11 @@ def CryptAnalyse(CrypType):
             if inputF[j].isalpha():
                 numb = 0
                 for i in cur:
-                    if inputF[j] == i:
-                        result += Alphabet[numb]
+                    if inputF[j].upper() == i:
+                        if inputF[j].upper() == inputF[j]:
+                            result += Alphabet[numb].upper()
+                        else:
+                            result += Alphabet[numb].lower()
                         break
                     numb += 1
             else:
@@ -57,13 +52,13 @@ def CryptAnalyse(CrypType):
 
         for i in range (len(inputF)):
             if inputF[i].isalpha():
-                result += Alphabet2[((Alphabet2.index(inputF[i]) - b) * a)  % len(Alphabet2)]
+                if inputF[i].upper() == inputF[i]:
+                    result += Alphabet2[((Alphabet2.index(inputF[i].upper()) - b) * a)  % len(Alphabet2)].upper()
+                else:
+                    result += Alphabet2[((Alphabet2.index(inputF[i].upper()) - b) * a)  % len(Alphabet2)].lower()
             else:
                 result += inputF[i]
-    
     outputF.write(result)
     outputF.close()
    
     return "Криптоанализ данного шифротекста выполнен успешно!\n"
-
-

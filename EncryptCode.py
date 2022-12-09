@@ -10,11 +10,6 @@ def Encrypt(OperType, CrypType) -> str:
     key = getKey(CrypType, keyF)
     CrypText = ''
     inputF = inputF.read()
-    # curstr = ''
-    # for i in inputF: 
-    #         if i.isalpha(): curstr += i.upper()
-    #         else: curstr += i
-    # inputF = curstr
 
     if CrypType != 1:
         print('\nВыберите язык текста:\n1 - Английский\n2 - Русский')
@@ -32,7 +27,7 @@ def Encrypt(OperType, CrypType) -> str:
             for i in range(len(inputF)):
                 if inputF[i].isalpha():
                     if not((inputF[i].upper() in key[0]) or (inputF[i].lower() in key[0])) or not ((inputF[i].upper() in key[1]) or (inputF[i].lower() in key[1])): 
-                        print("\nError: КЛЮЧ НЕ ПОДХОДИТ К ДАННОМУ ТЕКСТУ!")
+                        print("\nError: КЛЮЧ НЕ ПОДХОДИТ К ДАННОМУ ТЕКСТУ! Символ -  ", inputF[i], '  в позиции  ', i)
                         exit()
                     else:
                         curindx = cur.index(inputF[i].upper())
@@ -52,7 +47,7 @@ def Encrypt(OperType, CrypType) -> str:
             for i in range(len(inputF)):
                 if inputF[i].isalpha():
                     if not(inputF[i].upper() in Alphabet): 
-                        print("\nError: КЛЮЧ НЕ ПОДХОДИТ К ДАННОМУ ТЕКСТУ!")
+                        print("\nError: КЛЮЧ НЕ ПОДХОДИТ К ДАННОМУ ТЕКСТУ! Символ -  ", inputF[i], '  в позиции  ', i)
                         exit()
                     else:
                         curindx = Alphabet.index(inputF[i].upper())
@@ -79,7 +74,7 @@ def Encrypt(OperType, CrypType) -> str:
             for i in range(len(inputF)):
                 if inputF[i].isalpha():
                     if not(inputF[i].upper() in Alphabet): 
-                        print("\nError: КЛЮЧ НЕ ПОДХОДИТ К ДАННОМУ ТЕКСТУ!")
+                        print("\nError: КЛЮЧ НЕ ПОДХОДИТ К ДАННОМУ ТЕКСТУ! Символ -  ", inputF[i], '  в позиции  ', i)
                         exit()
                     else:
                         curindx = Alphabet.index(inputF[i].upper())
@@ -115,7 +110,7 @@ def Encrypt(OperType, CrypType) -> str:
             for i in range(len(inputF)):
                 if inputF[i].isalpha():
                     if not((inputF[i].upper() in key[0]) or (inputF[i].lower() in key[0])) or not ((inputF[i].upper() in key[1]) or (inputF[i].lower() in key[1])): 
-                        print("\nError: КЛЮЧ НЕ ПОДХОДИТ К ДАННОМУ ТЕКСТУ!")
+                        print("\nError: КЛЮЧ НЕ ПОДХОДИТ К ДАННОМУ ТЕКСТУ! Символ -  ", inputF[i], '  в позиции  ', i)
                         exit()
                     else:
                         curindx = cur.index(inputF[i].upper())
@@ -139,7 +134,7 @@ def Encrypt(OperType, CrypType) -> str:
             for i in range(len(inputF)):
                 if inputF[i].isalpha():
                     if not(inputF[i].upper() in Alphabet): 
-                        print("\nError: КЛЮЧ НЕ ПОДХОДИТ К ДАННОМУ ТЕКСТУ!")
+                        print("\nError: КЛЮЧ НЕ ПОДХОДИТ К ДАННОМУ ТЕКСТУ! Символ -  ", inputF[i], '  в позиции  ', i)
                         exit()
                     else:
                         curindx = Alphabet.index(inputF[i].upper())
@@ -174,7 +169,7 @@ def Encrypt(OperType, CrypType) -> str:
             for i in range(len(inputF)):
                 if inputF[i].isalpha():
                     if not(inputF[i].upper() in Alphabet): 
-                        print("\nError: КЛЮЧ НЕ ПОДХОДИТ К ДАННОМУ ТЕКСТУ!")
+                        print("\nError: КЛЮЧ НЕ ПОДХОДИТ К ДАННОМУ ТЕКСТУ! Символ -  ", inputF[i], '  в позиции  ', i)
                         exit()
                     else:
                         curindx = Alphabet.index(inputF[i].upper())
