@@ -40,18 +40,24 @@ def CryptAnalyse(CrypType: int):
                 result += inputF[j]
                     
     else:
+        
         x = Alphabet[0]
         for i in cur:
             y = i
+            break
         a = 0
         b = 0
         for a2 in range(len(Alphabet)):
             for b2 in range(len(Alphabet)):
-                if (Alphabet2.index(x)*a2 + b2) % len(Alphabet) == Alphabet2.index(y):
+                if (Alphabet2.index(x)*a2 + b2) % len(Alphabet2) == Alphabet2.index(y):
                     a = a2
                     b = b2
 
-        for i in inputF:
+        for i in range (len(inputF)):
+            if inputF[i].isalpha():
+                result += Alphabet2[((Alphabet2.index(inputF[i]) - b) * a)  % len(Alphabet2)]
+            else:
+                result += inputF[i]
             
     print("Криптоанализ данного шифротекста выполнен успешно!\n")
     return result
