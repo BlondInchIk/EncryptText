@@ -7,14 +7,18 @@ def CryptAnalyse(CrypType: int):
     print('\nВыберите язык шифртекста:\n1 - Английский\n2 - Русский')
     if int(input()) == 1:
         Alphabet = "ETAOINSHRDLCUMWFGYPBVKXJQZ"
+        Alphabet2 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     else:
         if int(input()) == 2:
             Alphabet = 'ОЕАИНТСРВЛКМДПУЯЫЬГЗБЧЙЧЖШЮЦЩЭФЪЁ'
+            Alphabet2 = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
         else:
             print("Error!")
             exit()
-    
-    
+
+
+
+    result = ''   
     cur = {}
 
 
@@ -24,10 +28,17 @@ def CryptAnalyse(CrypType: int):
     cur = dict(sorted(cur.items(), key=lambda item: item[1], reverse=True))
     
     if CrypType == 1:
-        numb = 0
-        for i in cur:
-            inputF = inputF.replace(i, Alphabet[numb])
-            numb += 1
+        
+        for j in range (len(inputF)):
+            if inputF[j].isalpha():
+                numb = 0
+                for i in cur:
+                    if inputF[j] == i:
+                        result += Alphabet[numb]
+                    numb += 1
+            else:
+                result += inputF[j]
+                    
     else:
         x = Alphabet[0]
         for i in cur:
@@ -43,6 +54,6 @@ def CryptAnalyse(CrypType: int):
         for i in inputF:
             
     print("Криптоанализ данного шифротекста выполнен успешно!\n")
-    return inputF
+    return result
 
 print("Криптоанализ данного шифротекста:\n",CryptAnalyse(1))
