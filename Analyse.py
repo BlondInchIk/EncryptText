@@ -24,7 +24,7 @@ def CryptAnalyse(CrypType: int):
     cur = dict(sorted(cur.items(), key=lambda item: item[1], reverse=True))
     numb = 0
     for i in cur:
-        inputF.replace(i, Alphabet[numb])
+        inputF = inputF.replace(i, Alphabet[numb])
         numb += 1
     print("Криптоанализ данного шифротекста:\n")
     return inputF
