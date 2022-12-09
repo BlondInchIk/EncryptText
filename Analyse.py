@@ -22,11 +22,27 @@ def CryptAnalyse(CrypType: int):
         cur[Alphabet[i]] = inputF.count(Alphabet[i].upper()) + inputF.count(Alphabet[i].lower())
 
     cur = dict(sorted(cur.items(), key=lambda item: item[1], reverse=True))
-    numb = 0
-    for i in cur:
-        inputF = inputF.replace(i, Alphabet[numb])
-        numb += 1
-    print("Криптоанализ данного шифротекста:\n")
+    
+    if CrypType == 1:
+        numb = 0
+        for i in cur:
+            inputF = inputF.replace(i, Alphabet[numb])
+            numb += 1
+    else:
+        x = Alphabet[0]
+        for i in cur:
+            y = i
+        a = 0
+        b = 0
+        for a2 in range(len(Alphabet)):
+            for b2 in range(len(Alphabet)):
+                if (Alphabet2.index(x)*a2 + b2) % len(Alphabet) == Alphabet2.index(y):
+                    a = a2
+                    b = b2
+
+        for i in inputF:
+            
+    print("Криптоанализ данного шифротекста выполнен успешно!\n")
     return inputF
 
 print("Криптоанализ данного шифротекста:\n",CryptAnalyse(1))
