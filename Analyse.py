@@ -1,4 +1,4 @@
-def CryptAnalyse(CrypType: int):
+def CryptAnalyse(CrypType):
 
     inputF = open('input.txt', 'r', encoding='utf8')
     outputF = open('output.txt', 'w', encoding='utf8')
