@@ -4,17 +4,17 @@ def CryptAnalyse(CrypType: int):
     result = ''
     inputF = inputF.read()
 
-    # print('\nВыберите язык шифртекста:\n1 - Английский\n2 - Русский')
-    # if int(input()) == 1:
-    #     Alphabet = "ETAOINSHRDLCUMWFGYPBVKXJQZ"
-    # else:
-    #     if int(input()) == 2:
-    #         Alphabet = 'ОЕАИНТСРВЛКМДПУЯЫЬГЗБЧЙЧЖШЮЦЩЭФЪЁ'
-    #     else:
-    #         print("Error!")
-    #         exit()
+    print('\nВыберите язык шифртекста:\n1 - Английский\n2 - Русский')
+    if int(input()) == 1:
+        Alphabet = "ETAOINSHRDLCUMWFGYPBVKXJQZ"
+    else:
+        if int(input()) == 2:
+            Alphabet = 'ОЕАИНТСРВЛКМДПУЯЫЬГЗБЧЙЧЖШЮЦЩЭФЪЁ'
+        else:
+            print("Error!")
+            exit()
     
-    Alphabet = 'ОЕАИНТСРВЛКМДПУЯЫЬГЗБЧЙЧЖШЮЦЩЭФЪЁ'
+    
     cur = {}
 
 
