@@ -17,11 +17,16 @@ def CryptAnalyse(CrypType: int):
     Alphabet = 'ОЕАИНТСРВЛКМДПУЯЫЬГЗБЧЙЧЖШЮЦЩЭФЪЁ'
     cur = {}
 
-    if CrypType == 1:
-        for i in range(len(Alphabet)):
-            cur[Alphabet[i]] = inputF.count(Alphabet[i].upper()) + inputF.count(Alphabet[i].lower())
+
+    for i in range(len(Alphabet)):
+        cur[Alphabet[i]] = inputF.count(Alphabet[i].upper()) + inputF.count(Alphabet[i].lower())
 
     cur = dict(sorted(cur.items(), key=lambda item: item[1], reverse=True))
-    return cur
+    numb = 0
+    for i in cur:
+        inputF.replace(i, Alphabet[numb])
+        numb += 1
+    print("Криптоанализ данного шифротекста:\n")
+    return inputF
 
-print(CryptAnalyse(1))
+print("Криптоанализ данного шифротекста:\n",CryptAnalyse(1))
