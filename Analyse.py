@@ -19,7 +19,7 @@ def CryptAnalyse(CrypType):
         cur[Alphabet[i]] = inputF.count(Alphabet[i].upper()) + inputF.count(Alphabet[i].lower())
 
     cur = dict(sorted(cur.items(), key=lambda item: item[1], reverse=True))
-    
+    print('\n',cur,'\n\n')
     if CrypType == 1:
         
         for j in range (len(inputF)):
@@ -49,7 +49,25 @@ def CryptAnalyse(CrypType):
                 if (Alphabet2.index(x)*a2 + b2) % len(Alphabet2) == Alphabet2.index(y):
                     a = a2
                     b = b2
+                    for i in range(len(Alphabet)):
+                        if((a * i) % len(Alphabet) == 1):
+                            a = i
+                            break
+                    result = ''
+                    for i in range (30):
+                        if inputF[i].isalpha():
+                            if inputF[i].upper() == inputF[i]:
+                                result += Alphabet2[((Alphabet2.index(inputF[i].upper()) - b) * a)  % len(Alphabet2)].upper()
+                            else:
+                                result += Alphabet2[((Alphabet2.index(inputF[i].upper()) - b) * a)  % len(Alphabet2)].lower()
+                        else:
+                            result += inputF[i]
+                    print("Результат для a = ", a,', и b = ', b, ' = ', result,'\n')
 
+        result = ''
+        a = int(input("Выберите a "))
+        b = int(input("Выберите b "))
+        print(a, b)
         for i in range (len(inputF)):
             if inputF[i].isalpha():
                 if inputF[i].upper() == inputF[i]:
