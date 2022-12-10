@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 def getKey(CrypType, keyF):
 
     if CrypType == 1:

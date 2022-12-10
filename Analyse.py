@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 def CryptAnalyse(CrypType):
 
     inputF = open('input.txt', 'r', encoding='utf8')
